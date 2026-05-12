@@ -62,12 +62,12 @@ const Paste = () => {
               >
 
                 {/* Title */}
-                <div className="text-2xl font-bold text-white break-words">
+                <div className="text-2xl font-bold text-white break-all">
                   {paste.title}
                 </div>
 
                 {/* Content */}
-                <div className="text-gray-300 mt-4 whitespace-pre-wrap break-words line-clamp-4">
+                <div className="text-gray-300 mt-4 whitespace-pre-wrap break-all line-clamp-4">
                   {paste.content}
                 </div>
 
