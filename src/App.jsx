@@ -5,41 +5,48 @@ import Navbar from './components/Navbar';
 import Paste from './components/Paste';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
+const Layout = ({ children }) => {
+  return (
+    <div className="min-h-screen bg-gray-950 text-white">
+      <Navbar />
 
-const router = createBrowserRouter(
-  [
-    {
-      path:"/",
-      element:
-      <div>
-        <Navbar />
+      <div className="max-w-6xl mx-auto px-4 py-6">
+        {children}
+      </div>
+    </div>
+  );
+};
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <Layout>
         <Home />
-      </div>
-    },
-    {
-      path:"/pastes",
-      element:
-      <div>
-        <Navbar />
+      </Layout>
+    ),
+  },
+  {
+    path: "/pastes",
+    element: (
+      <Layout>
         <Paste />
-      </div>
-    },
-    {
-      path:"/pastes/:id",
-      element:
-      <div>
-        <Navbar />
+      </Layout>
+    ),
+  },
+  {
+    path: "/pastes/:id",
+    element: (
+      <Layout>
         <ViewPaste />
-      </div>
-    },
-  ]
-);
+      </Layout>
+    ),
+  },
+]);
 
 function App() {
   return (
-    <div>
-      <RouterProvider router={router}/>
-    </div>
+    <RouterProvider router={router} />
   )
 }
 
